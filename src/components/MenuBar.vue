@@ -2,13 +2,14 @@
   <header>
     <nav class="content-wrapper">
       <RouterLink class="logo" to="/">Countries DB</RouterLink>
-      <button>Dark mode</button>
+      <button><DarkModeIcon></DarkModeIcon><span>Dark Mode</span></button>
     </nav>
   </header>
 </template>
 
 <script setup>
 import { RouterLink } from 'vue-router'
+import DarkModeIcon from './icons/DarkModeIcon.vue'
 </script>
 
 <style lang="scss" scoped>
@@ -20,6 +21,7 @@ header {
   display: flex;
   justify-content: center;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  color: $grey-950;
 }
 
 .content-wrapper {
@@ -33,7 +35,22 @@ header {
 
 .logo {
   @include text-2;
-  color: $grey-950;
   text-decoration: none;
+  &:visited {
+    color: inherit;
+  }
+}
+
+button {
+  appearance: none;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  gap: $sp-100;
+
+  @include text-4-bold;
 }
 </style>
