@@ -5,7 +5,7 @@ import { RouterLink, RouterView } from 'vue-router'
 <template>
   <header>
     <div class="wrapper">
-      <h1>Hello World</h1>
+      <h1 class="h1">Hello World</h1>
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
@@ -17,4 +17,6 @@ import { RouterLink, RouterView } from 'vue-router'
   <RouterView />
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+@use '@/assets/scss/utilities' as *;
+</style>
