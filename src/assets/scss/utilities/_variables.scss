@@ -1,3 +1,4 @@
+// Colors
 $white: hsl(0, 100%, 100%);
 $black: hsl(0, 0%, 0%);
 
@@ -11,6 +12,7 @@ $grey-50: hsl(0, 0%, 99%);
 $blue-950: hsl(207, 26%, 17%);
 $blue-900: hsl(209, 23%, 22%);
 
+// Typography
 $font-family: 'Nunito Sans', sans-serif;
 $light-font: 300;
 $regular-font: 400;
@@ -28,3 +30,6 @@ $sp-700: 56px;
 $sp-800: 64px;
 $sp-900: 72px;
 $sp-1000: 80px;
+
+// Sizings
+$max-content-width: 1440px;

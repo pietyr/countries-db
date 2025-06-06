@@ -79,3 +79,7 @@
   letter-spacing: 0px;
   font-weight: $light-font;
 }
+
+@mixin main-inline-padding {
+  padding-inline: max(5%, 20px);
+}
