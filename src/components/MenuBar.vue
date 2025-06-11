@@ -8,8 +8,8 @@
 </template>
 
 <script setup>
-import { RouterLink } from 'vue-router'
-import DarkModeIcon from './icons/DarkModeIcon.vue'
+import { RouterLink } from 'vue-router';
+import DarkModeIcon from './icons/DarkModeIcon.vue';
 </script>
 
 <style lang="scss" scoped>
@@ -20,7 +20,7 @@ header {
   height: 80px;
   display: flex;
   justify-content: center;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  @include shadow;
   color: $grey-950;
 }
 

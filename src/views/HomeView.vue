@@ -1,6 +1,6 @@
 <script setup>
-import FilterBar from '@/components/FilterBar.vue'
-import CountriesList from '@/components/CountriesList.vue'
+import FilterBar from '@/components/FilterBar.vue';
+import CountriesList from '@/components/CountriesList.vue';
 </script>
 
 <template>
@@ -13,3 +13,10 @@ import CountriesList from '@/components/CountriesList.vue'
     </main>
   </div>
 </template>
+
+<style lang="scss" scoped>
+@use '@/assets/scss/utilities' as *;
+main {
+  padding-block: $sp-600;
+}
+</style>

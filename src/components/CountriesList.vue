@@ -1,13 +1,12 @@
 <template>
-  <div>
-    <ul>
-      <li v-for="country in countries" :key="country.cca3">{{ country.name.common }}</li>
-    </ul>
+  <div class="countries-list-wrapper">
+    <CountryCard v-for="country in countries" :country="country" :key="country.cca3" />
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue';
+import CountryCard from '@/components/CountryCard.vue';
 
 const codes = ref([]);
 const randomCodes = ref([]);
@@ -40,4 +39,15 @@ onMounted(async () => {
 });
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@use '@/assets/scss/utilities' as *;
+
+.countries-list-wrapper {
+  max-width: $max-content-width;
+  @include main-inline-padding;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $sp-900;
+}
+</style>
