@@ -1,12 +1,24 @@
 <template>
   <div class="countries-list-wrapper">
-    <CountryCard v-for="country in countries" :country="country" :key="country.cca3" />
+    <CountryCard
+      v-for="country in countries"
+      :key="country.cca3"
+      :country="country"
+      @click="
+        () => {
+          useCountryStore().setCountry(country);
+          router.push(`/country/${country.cca3}`);
+        }
+      "
+    />
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue';
+import { useCountryStore } from '@/stores/contryStore';
 import CountryCard from '@/components/CountryCard.vue';
+import router from '@/router';
 
 const codes = ref([]);
 const randomCodes = ref([]);
@@ -49,5 +61,9 @@ onMounted(async () => {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: $sp-900;
+}
+
+.country-card-link {
+  text-decoration: none;
 }
 </style>

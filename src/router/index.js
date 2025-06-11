@@ -1,5 +1,6 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import { createRouter, createWebHistory } from 'vue-router';
+import HomeView from '../views/HomeView.vue';
+import CountryView from '../views/CountryView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -10,6 +11,14 @@ const router = createRouter({
       component: HomeView,
     },
     {
+      path: '/country/:country_code',
+      name: 'country',
+      component: CountryView,
+      props: {
+        country: true,
+      },
+    },
+    {
       path: '/about',
       name: 'about',
       // route level code-splitting
@@ -18,6 +27,6 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue'),
     },
   ],
-})
+});
 
-export default router
+export default router;
