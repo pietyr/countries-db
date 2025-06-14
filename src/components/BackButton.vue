@@ -11,7 +11,7 @@ import BackArrowIcon from '@/components/icons/BackArrowIcon.vue';
 button {
   background-color: $white;
   border: none;
-  border-radius: $sp-100;
+  border-radius: 4px;
   color: $grey-950;
   cursor: pointer;
   @include text-4-light;
@@ -19,9 +19,6 @@ button {
   display: flex;
   align-items: center;
   gap: $sp-200;
-  padding: $sp-100 $sp-400;
-  &:hover {
-    text-decoration: underline;
-  }
+  padding: 4px $sp-400;
 }
 </style>

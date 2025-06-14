@@ -23,6 +23,7 @@ import router from '@/router';
 const codes = ref([]);
 const randomCodes = ref([]);
 const countries = ref([]);
+const countryStore = useCountryStore();
 
 onMounted(async () => {
   // Fetch country codes
@@ -39,15 +40,8 @@ onMounted(async () => {
       i++;
     }
   }
-
-  // Create a string of country codes for the API call
-  const codesString = randomCodes.value.join(',');
-
-  // Fetch country data for the random codes
-  const countriesResponse = await fetch(
-    `https://restcountries.com/v3.1/alpha?codes=${codesString}`,
-  );
-  countries.value = await countriesResponse.json();
+  countries.value = await countryStore.loadCountries(randomCodes.value);
+  console.log(countries.value);
 });
 </script>
 
