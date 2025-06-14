@@ -5,6 +5,9 @@ export const useCountryStore = defineStore('country', {
     selectedCountry: null,
     countries: {},
     loadedCountries: [],
+    filteredCountries: [],
+    hasFilteredCountries: false,
+    countryNames: {},
   }),
   actions: {
     // Select a country for routing

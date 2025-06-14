@@ -1,9 +1,20 @@
 <template>
-  <button @click="$router.go(-1)"><BackArrowIcon /><span>Back</span></button>
+  <button
+    @click="
+      () => {
+        $router.go(-1);
+        countryStore.hasFilteredCountries = false;
+      }
+    "
+  >
+    <BackArrowIcon /><span>Back</span>
+  </button>
 </template>
 
 <script setup>
 import BackArrowIcon from '@/components/icons/BackArrowIcon.vue';
+import { useCountryStore } from '@/stores/contryStore';
+const countryStore = useCountryStore();
 </script>
 
 <style lang="scss" scoped>

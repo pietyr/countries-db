@@ -1,16 +1,32 @@
 <template>
   <div class="countries-list-wrapper">
-    <CountryCard
-      v-for="country in countries"
-      :key="country.cca3"
-      :country="country"
-      @click="
-        () => {
-          useCountryStore().setCountry(country);
-          router.push(`/country/${country.cca3}`);
-        }
-      "
-    />
+    <template v-if="!countryStore.hasFilteredCountries">
+      <CountryCard
+        v-for="country in countries"
+        :key="country.cca3"
+        :country="country"
+        @click="
+          () => {
+            useCountryStore().setCountry(country);
+            router.push(`/country/${country.cca3}`);
+          }
+        "
+      />
+    </template>
+    <template v-else>
+      <p v-if="countryStore.filteredCountries.length === 0">No countries found.</p>
+      <CountryCard
+        v-for="country in countryStore.filteredCountries"
+        :key="country.cca3"
+        :country="country"
+        @click="
+          () => {
+            useCountryStore().setCountry(country);
+            router.push(`/country/${country.cca3}`);
+          }
+        "
+      />
+    </template>
   </div>
 </template>
 
@@ -27,9 +43,12 @@ const countryStore = useCountryStore();
 
 onMounted(async () => {
   // Fetch country codes
-  const response = await fetch('https://restcountries.com/v3.1/all?fields=cca3');
+  const response = await fetch('https://restcountries.com/v3.1/all?fields=cca3,name');
   const json = await response.json();
   codes.value = json.map((obj) => obj.cca3);
+  json.forEach((obj) => {
+    countryStore.countryNames[obj.name.common.toLowerCase()] = obj.cca3;
+  });
 
   // Get 8 random country codes
   let i = 0;
@@ -41,7 +60,6 @@ onMounted(async () => {
     }
   }
   countries.value = await countryStore.loadCountries(randomCodes.value);
-  console.log(countries.value);
 });
 </script>
 
