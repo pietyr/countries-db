@@ -40,6 +40,7 @@ const countryRegion = ref(props.country.region);
   background-color: $white;
   overflow: hidden;
   @include shadow;
+  cursor: pointer;
 }
 
 .img-wrapper {

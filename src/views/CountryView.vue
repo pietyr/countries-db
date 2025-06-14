@@ -1,5 +1,6 @@
 <template>
   <div>
+    <BackButton />
     <h1>{{ countryStore.selectedCountry?.name.common }}</h1>
     <div>
       <img
@@ -14,6 +15,7 @@
 import { useCountryStore } from '@/stores/contryStore';
 import { useRoute } from 'vue-router';
 import { onMounted } from 'vue';
+import BackButton from '@/components/BackButton.vue';
 
 const route = useRoute();
 const countryStore = useCountryStore();
