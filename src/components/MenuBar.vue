@@ -2,14 +2,14 @@
   <header>
     <nav class="content-wrapper">
       <RouterLink class="logo" to="/">Countries DB</RouterLink>
-      <button><DarkModeIcon></DarkModeIcon><span>Dark Mode</span></button>
+      <!-- <button><DarkModeIcon></DarkModeIcon><span>Dark Mode</span></button> -->
     </nav>
   </header>
 </template>
 
 <script setup>
 import { RouterLink } from 'vue-router';
-import DarkModeIcon from './icons/DarkModeIcon.vue';
+// import DarkModeIcon from './icons/DarkModeIcon.vue';
 </script>
 
 <style lang="scss" scoped>

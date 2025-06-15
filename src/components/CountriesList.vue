@@ -67,12 +67,20 @@ onMounted(async () => {
 @use '@/assets/scss/utilities' as *;
 
 .countries-list-wrapper {
+  width: 100%;
   max-width: $max-content-width;
   @include main-inline-padding;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: $sp-900;
+  @media (max-width: 1250px) {
+    grid-template-columns: auto auto;
+  }
+
+  @media (max-width: 800px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .country-card-link {

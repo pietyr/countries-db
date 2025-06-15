@@ -35,7 +35,7 @@ const countryRegion = ref(props.country.region);
 <style lang="scss" scoped>
 @use '@/assets/scss/utilities' as *;
 .container {
-  max-width: 264px;
+  // max-width: 264px;
   border-radius: $sp-100;
   background-color: $white;
   overflow: hidden;

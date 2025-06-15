@@ -1,20 +1,20 @@
 <template>
-  <div>
-    <div>
+  <div class="content-wrapper">
+    <div class="button-wrapper">
       <BackButton />
     </div>
-    <div>
-      <div>
+    <div class="country-details">
+      <div class="flag-wrapper">
         <img
           :src="countryStore.selectedCountry?.flags.svg"
           alt="Flag of {{ countryStore.selectedCountry?.name.common }}"
         />
       </div>
-      <div>
+      <div class="text-wrapper">
         <div>
           <h2>{{ countryStore.selectedCountry?.name.common }}</h2>
         </div>
-        <div>
+        <div class="text-split">
           <div>
             <p>
               <b>Native Name: </b>
@@ -72,18 +72,6 @@
             </p>
           </div>
         </div>
-        <div>
-          <b>Border Countries: </b>
-          <div>
-            <span
-              v-for="border in countryStore.selectedCountry?.borders || []"
-              :key="border"
-              class="border-country"
-            >
-              {{ border }}
-            </span>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -109,4 +97,74 @@ onMounted(() => {
 });
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@use '@/assets/scss/utilities' as *;
+
+.content-wrapper {
+  padding: $sp-1000;
+  display: flex;
+  flex-direction: column;
+  gap: $sp-1000;
+  @include main-inline-padding;
+  max-width: $max-content-width;
+  margin: 0 auto;
+
+  .country-details {
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width: 1250px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: $sp-600;
+    }
+
+    > div {
+      flex: 0 1 45%;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      @media (max-width: 1250px) {
+        max-width: 480px;
+      }
+
+      border-radius: 4px;
+      @include shadow;
+    }
+
+    .text-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: $sp-300;
+      justify-content: center;
+    }
+    .text-split {
+      display: flex;
+      justify-content: space-between;
+      @media (max-width: 1250px) {
+        // flex-direction: column;
+        gap: $sp-600;
+      }
+      @media (max-width: 650px) {
+        flex-direction: column;
+        gap: unset;
+      }
+      p {
+        color: $grey-950;
+        @include text-4-light;
+        b {
+          @include text-4-bold;
+        }
+      }
+    }
+
+    h2 {
+      @include text-1;
+      margin: 0;
+      color: $grey-950;
+    }
+  }
+}
+</style>
